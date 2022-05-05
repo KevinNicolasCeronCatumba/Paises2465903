@@ -45,16 +45,18 @@ Route::get('arreglo' , function(){
 });
 //-
 Route::get('paises' , function(){
+    //arreglos de paises
     $paises = [ 
         "Colombia" => [
-                "Capital"=> "Bogota",
-                "Moneda" => "Peso",
-                "Poblacion" => 51,
-                "Ciudades" => [
-                    "Medellin",
-                    "Cali",
-                    "Barranquilla",
-                ],
+            "Capital"=> "Bogota",
+            "Moneda" => "Peso",
+            "Poblacion" => 51,
+            "Ciudades" => [
+                "Medellin",
+                "Cali",
+                "Barranquilla",
+                "Cartagena",
+            ],
         ],
         "Peru" =>[
             "Capital"=> "Lima",
@@ -63,6 +65,7 @@ Route::get('paises' , function(){
             "Ciudades" => [
                 "Arequipa",
                 "Trujillo",
+                "Piura",
             ],
         ],
         "Paraguay" =>[
@@ -71,17 +74,33 @@ Route::get('paises' , function(){
             "Poblacion" => 7,
             "Ciudades" => [
                 "Luque",
+                "Villarrica",
             ],
         ],
         "Bolivia" =>[
             "Capital"=> "Sucre",
             "Moneda" => "Boliviano",
             "Poblacion" => 11,
+            "Ciudades" => [
+                "La Paz",
+                "Tarija",
+                "El Alto",
+                "Oruro",
+                "Trinidad",
+                "Cobija"
+            ],
         ],
         "Panama" =>[
             "Capital"=> "Ciudad de Panama",
             "Moneda" => "Balboa / Dolar",
             "Poblacion" => 4,
+            "Ciudades" => [
+                "Ciudad de Panama",
+                "Chitre",
+                "Las Tablas",
+                "Villa Carmen",
+                "Colon",
+            ],
         ],
     ];
     //Analizar variable 'paises'
@@ -95,6 +114,7 @@ Route::get('paises' , function(){
     foreach($paises as $e){
         echo $e. "<hr />";
     }*/
+
     //mostrar la vista
     return view('paises')->with("paises" , $paises);
 });
