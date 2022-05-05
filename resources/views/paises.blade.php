@@ -25,7 +25,7 @@
                     <th class="text-info" rowspan='{{count($infopais["Ciudades"])}}'>{{$pais}}</th>
                     <th class="text-secondary" rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Capital"]}}</th>
                     <td class="text-muted"rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Moneda"]}}</td>
-                    <td class="text-warning" rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Poblacion"]}}millones hab </td>
+                    <td class="text-warning" rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Poblacion"]}} millones hab </td>
                     
                     @foreach($infopais["Ciudades"] as $Ciudad)
                         <td class="p-3 mb-2 bg-success text-white">
