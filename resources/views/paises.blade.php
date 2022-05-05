@@ -11,7 +11,7 @@
     <CENTER><H1>PAISES DE LA REGION</H1></CENTER>
     <table class="table table-bordered">
         <thead>
-            <tr>
+            <tr class="p-3 mb-2 bg-info text-white">
                 <th>NOMBRE</th>
                 <th>CAPITAL</th>
                 <th>MONEDA</th>
@@ -22,8 +22,8 @@
         <tbody>
             @foreach($paises as $pais => $infopais)
                 <tr>
-                    <th rowspan='{{count($infopais["Ciudades"])}}'>{{$pais}}</th>
-                    <td rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Capital"]}}</td>
+                    <th class="text-info" rowspan='{{count($infopais["Ciudades"])}}'>{{$pais}}</th>
+                    <th rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Capital"]}}</th>
                     <td rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Moneda"]}}</td>
                     <td rowspan='{{count($infopais["Ciudades"])}}'>{{$infopais["Poblacion"]}}millones hab </td>
                     
