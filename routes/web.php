@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,3 +123,6 @@ Route::get('paises' , function(){
 Route::get('prueba', function(){
     return view('productos.new');
 });
+
+//rutas rest - resource
+Route::resource('productos' , ProductoController::class);

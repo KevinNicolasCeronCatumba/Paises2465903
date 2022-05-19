@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Marca;
+use App\Models\Categoria;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,5 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        categoria::factory(50)->create();
+        marca::factory(50)->create();
     }
 }

@@ -24,6 +24,18 @@
                     <label for="precio">Precio</label>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="input-field col s8">
+                    <select name="" id="marca">
+                        @foreach($marcas as $marca)
+                        <option>{{$marca->nombre}}</option>
+                        @endforeach
+                    </select>
+                    <label for="marca">ELIJA MARCA</label>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="file-field input-field col s8">
                     <div class="btn teal accent-3">
