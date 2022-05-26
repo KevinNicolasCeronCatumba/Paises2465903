@@ -1,41 +1,71 @@
 @extends('layouts.menu')
 
 @section('contenido')
+
+@if(session('mensajito'))
+<div class="row">
+    <span>{{session('mensajito')}}</span>
+</div>
+@endif
     <div class="row">
         <h1 class="teal-text text-accent-4">NUEVO PRODUCTO</h1>
     </div>
     <div class="row">
-        <form action="" class="col s8">
+        <form action="{{route('productos.store')}}" method="POST" class="col s8">
+            @csrf
+            <!---->
             <div class="row">
                 <div class="input-field cold s8">
-                    <input type="text" placeholder="Nombre de producto" id="nombre" name="nombre">
+                    <input type="text" placeholder="Nombre de producto" id="nombre" name="nombre" value="{{old('nombre')}}">
                     <label for="nombre">Nombre</label>
+                    <span class="red-text text-darken-2">{{$errors->first('nombre')}}</span>
                 </div>
             </div>
+            <!---->
             <div class="row">
                 <div class="input-field cold s8">
-                    <textarea name="desc" id="desc" class="materialize-textarea"></textarea>
+                    <textarea name="desc" id="desc" class="materialize-textarea" >{{old('desc')}}</textarea>
                     <label for="desc">Descripcion</label>
+                    <span class="red-text text-darken-2">{{$errors->first('desc')}}</span>
                 </div>
             </div>
+            <!---->
             <div class="row">
                 <div class="input-field cold s8">
-                    <input type="text" id="precio" name="precio">
+                    <input type="text" id=" " name="precio" value="{{old('precio')}}">
                     <label for="precio">Precio</label>
+                    <span class="red-text text-darken-2">{{$errors->first('precio')}}</span>
                 </div>
             </div>
-
+            <!---->
             <div class="row">
                 <div class="input-field col s8">
-                    <select name="" id="marca">
+                    <select name="marca" id="marca">
+                        <option value="" selected disabled>SELECCIONE MARCA</option>
                         @foreach($marcas as $marca)
-                        <option>{{$marca->nombre}}</option>
+                        <option value="{{$marca->id}}"  >{{$marca->nombre}}</option>
                         @endforeach
                     </select>
                     <label for="marca">ELIJA MARCA</label>
+                    <span class="red-text text-darken-2">{{$errors->first('marca')}}</span>
                 </div>
+                
             </div>
-
+            <!---->
+            <div class="row">
+                <div class="input-field col s8">
+                    <select name="categoria" id="categoria">
+                        <option value="" selected disabled>SELECCIONE CATEGORIA</option>
+                        @foreach($categorias as $categoria)
+                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                        @endforeach
+                    </select>
+                    <label for="categoria">ELIJA CATEGORIA</label>
+                    <span class="red-text text-darken-2">{{$errors->first('categoria')}}</span>
+                </div>
+                
+            </div>
+            <!---->
             <div class="row">
                 <div class="file-field input-field col s8">
                     <div class="btn teal accent-3">
@@ -47,9 +77,11 @@
                     </div>
                 </div>
             </div>
+            <!---->
             <div class="row">
                 <button class="btn waves-effect waves-light teal accent-3" type="submit" name="action">GUARDAR</button>
             </div>
+            <!---->
         </form>
     </div>
 @endsection
