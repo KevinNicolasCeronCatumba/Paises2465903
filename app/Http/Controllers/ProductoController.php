@@ -17,7 +17,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        echo "aqui va a ir el catalogo de productos";
+        //seleccionar todos los productos de la base de datos
+        $productos = Producto::all();
+        //mostar el catalogo de producto llevandole las lista de productos
+        return view("productos.index")->with('productos',$productos);
     }
 
     /**
