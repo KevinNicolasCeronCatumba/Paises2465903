@@ -4,7 +4,7 @@
 
 @if(session('mensajito'))
 <div class="row">
-    <span>{{session('mensajito')}}</span>
+    <span class="green-text text-darken-2">{{session('mensajito')}}</span>
 </div>
 @endif
     <div class="row">
