@@ -53,6 +53,7 @@ class ProductoController extends Controller
             "precio"=>'required|numeric',
             "marca"=>'required',
             "categoria"=>'required',
+            "imagen"=>'required|image',
         ];
         //mensajes   ""=>"",
         $mensajes =[
@@ -61,6 +62,7 @@ class ProductoController extends Controller
             "min"=>"Minimo 20 caracteres*",
             "max"=>"Maximo 100 caracteres*",
             "numeric"=>"Solo caracteres numericos*",
+            "image"=>"Solo se aceptan archivos de imagen*",
         ];
 
         //2.crear el objeto validador
@@ -75,6 +77,17 @@ class ProductoController extends Controller
             //redireccionar al formulario
             return redirect('productos/create')->withErrors($v)->withInput();
         }else{
+            //analizar la input data "imagen"
+            /*echo "<pre>";
+            var_dump($r->imagen);
+            echo "</pre>";*/
+            //acceder a propiedades del archivo cargado
+            $archivo = $r->imagen;
+            $nombre_archivo = $archivo->getClientOriginalName();
+            //establecer ubicacion / ruta donde se cargara o almacenara el archivo
+            $ruta=public_path()."/img";
+            //mover el archivo 
+            $archivo->move($ruta,$nombre_archivo);
             //validacion correcta
             //crear nuevo producto<<entity>>
             $p = new Producto;
@@ -82,6 +95,7 @@ class ProductoController extends Controller
             //p = base de datos
             //r = formulario html
             $p->nombre=$r->nombre;
+            $p->imagen = $nombre_archivo;
             $p->descripcion=$r->desc;
             $p->precio=$r->precio;
             $p->marca_id=$r->marca;

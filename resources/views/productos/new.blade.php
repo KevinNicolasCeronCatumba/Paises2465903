@@ -11,7 +11,7 @@
         <h1 class="teal-text text-accent-4">NUEVO PRODUCTO</h1>
     </div>
     <div class="row">
-        <form action="{{route('productos.store')}}" method="POST" class="col s8">
+        <form action="{{route('productos.store')}}" method="POST" class="col s8" enctype="multipart/form-data">
             @csrf
             <!---->
             <div class="row">
@@ -76,6 +76,7 @@
                         <input class="file-path" type="text">
                     </div>
                 </div>
+                <span class="red-text text-darken-2">{{$errors->first('imagen')}}</span>
             </div>
             <!---->
             <div class="row">
