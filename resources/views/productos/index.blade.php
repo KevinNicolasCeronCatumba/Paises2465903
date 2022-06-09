@@ -19,14 +19,14 @@
                 <span class="card-title activator grey-text text-darken-4">{{$producto->nombre}}
                     <i class="material-icons right">Ver mas</i>
                 </span>
-                <p><a href="#">Ver detalles</a></p>
+                <p><a href="{{ url('productos/'.$producto->id) }}">Ver detalles</a></p>
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">{{$producto->nombre}}<i class="material-icons right">X</i></span>
                 <p>DESCRIPCION:<br>{{$producto->descripcion}}</p>
                 <p>PRECIO:<br>{{$producto->precio}}</p>
-                <p class="grey-text">MARCA:<br>{{$producto->marca_id}}</p>
-                <p class="grey-text">CATEGORIA:<br>{{$producto->categoria_id}}</p>
+                <p class="grey-text">MARCA:<br>{{$producto->marca->nombre}}</p>
+                <p class="grey-text">CATEGORIA:<br>{{$producto->categoria->nombre}}</p>
             </div>
         </div>
     @endforeach

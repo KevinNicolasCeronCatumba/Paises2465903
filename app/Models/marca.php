@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class marca extends Model
+class Marca extends Model
 {
     use HasFactory;
+
+    //relacion etre marca y producto
+    public function productos(){
+        return $this->hasMany(producto::class);
+    }
 }
